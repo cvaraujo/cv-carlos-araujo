@@ -21,7 +21,7 @@ jobs:
       - name: stash pdf
         run: |
           mv main.pdf $HOME # cache the file
-      - name: checkout gh_actions_builds branch
+      - name: checkout main branch
         uses: actions/checkout@v1
         with:
           ref: main
@@ -35,7 +35,7 @@ jobs:
       - name: work around permission issue
         run: git config --global --add safe.directory /github/workspace
       - name:  push pdf
-        uses: ad-m/github-push-action@v0.5.0
+        uses: ad-m/github-push-action@master
         with: 
           branch: main
           force: false
