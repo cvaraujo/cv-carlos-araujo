@@ -32,6 +32,8 @@ jobs:
           mv $HOME/main.pdf $(pwd) # bring it back 
           git add main.pdf
           git commit -m "Update PDF"
+      - name: work around permission issue
+        run: git config --global --add safe.directory *
       - name:  push pdf
         uses: ad-m/github-push-action@v0.5.0
         with: 
