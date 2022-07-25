@@ -1,0 +1,54 @@
+name: CI
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: download paper repo
+        uses: actions/checkout@v1
+      - name: build pdf 
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: ./ 
+      - name: stash pdf
+        run: |
+          mv main.pdf $HOME # cache the file
+      - name: checkout gh_actions_builds branch
+        uses: actions/checkout@v1
+        with:
+          ref: gh_actions_builds
+      - name: commit pdf
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          mv $HOME/main.pdf $(pwd) # bring it back 
+          git add main.pdf
+          git commit -m "Update PDF"
+      - name:  push pdf
+        uses: ad-m/github-push-action@v0.5.0
+        with: 
+          branch: gh_actions_builds 
+          force: false
+          github_token: ${{ secrets.TOKEN }}
+          
+      - uses: actions/checkout@v3
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
+        with:
+          source-directory: 'main.pdf'
+          destination-github-username: 'cvaraujo'
+          destination-repository-name: 'https://github.com/cvaraujo/Webpage-Carlos-Unicamp'
+          user-email: carlosvdaraujo@gmail.com
+          target-branch: main
