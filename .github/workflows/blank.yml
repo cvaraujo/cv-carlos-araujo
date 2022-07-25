@@ -10,8 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      
+    steps:    
       - name: download paper repo
         uses: actions/checkout@v1
       - name: build pdf 
@@ -36,19 +35,25 @@ jobs:
       - name:  push pdf
         uses: ad-m/github-push-action@v0.5.0
         with: 
-          branch: gh_actions_builds 
+          branch: main
           force: false
           github_token: ${{ secrets.TOKEN }}
+  
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Pushes test file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
+      with:
+        source_file: 'main.pdf'
+        destination_repo: 'cvaraujo/Webpage-Carlos-Unicamp'
+        destination_folder: '.'
+        user_email: 'carlosvdaraujo@gmail.com'
+        user_name: 'cvaraujo'
+        commit_message: 'Update CV'
           
-      - uses: actions/checkout@v3
-      - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
-          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
-        with:
-          source-directory: 'main.pdf'
-          destination-github-username: 'cvaraujo'
-          destination-repository-name: 'https://github.com/cvaraujo/Webpage-Carlos-Unicamp'
-          user-email: carlosvdaraujo@gmail.com
-          target-branch: main
