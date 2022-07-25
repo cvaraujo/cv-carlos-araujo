@@ -48,7 +48,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
         with:
           source_file: 'main.pdf'
-          destination_repo: 'cvaraujo/Webpage-Carlos-Unicamp'
+          destination_repo: 'ThomasDillanBM/Webpage-Carlos-Unicamp'
           user_email: 'carlosvdaraujo@gmail.com'
           user_name: 'cvaraujo'
           commit_message: 'Update CV'
