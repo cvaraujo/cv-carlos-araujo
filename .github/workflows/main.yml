@@ -15,25 +15,6 @@ jobs:
       - name: stash pdf
         run: |
           mv main.pdf $HOME # cache the file
-      - name: checkout main branch
-        uses: actions/checkout@v1
-        with:
-          ref: main
-      - name: commit pdf
-        run: |
-          git config --local user.email "carlosvdaraujo@gmail.com"
-          git config --local user.name "cvaraujo"
-          mv $HOME/main.pdf $(pwd) # bring it back 
-          git add main.pdf
-          git commit -m "Update PDF"
-      - name: work around permission issue
-        run: git config --global --add safe.directory /github/workspace
-      - name:  push pdf
-        uses: ad-m/github-push-action@master
-        with: 
-          branch: main
-          force: false
-          github_token: ${{ secrets.TOKEN }}
       - name: Checkout to send
         uses: actions/checkout@v2
       - name: Pushes  file
