@@ -11,6 +11,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:   
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Pushes  file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
@@ -18,7 +20,6 @@ jobs:
         with:
           source_file: 'main.pdf'
           destination_repo: 'cvaraujo/Webpage-Carlos-Unicamp'
-          destination_folder: '.'
           user_email: 'carlosvdaraujo@gmail.com'
           user_name: 'cvaraujo'
           commit_message: 'Update CV'
