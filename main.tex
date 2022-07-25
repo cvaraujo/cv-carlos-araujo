@@ -1,0 +1,340 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.3, 10 May 2020) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+% This fork/modified version has been made by Nicolás Omar González Passerino (nicolas.passerino@gmail.com, 15 Oct 2020)
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% If you need to pass whatever options to xcolor
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+%% If you are using \orcid or academicons
+%% icons, make sure you have the academicons
+%% option here, and compile with XeLaTeX
+%% or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+%% AltaCV uses the fontawesome5 and academicons fonts
+%% and packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
+
+% Change the page layout if you need to
+\geometry{left=1.2cm,right=1.2cm,top=1cm,bottom=1cm,columnsep=0.8cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% ----- LIGHT MODE -----
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{PrimaryColor}{HTML}{3498db}
+\definecolor{SecondaryColor}{HTML}{53a89e}
+% \definecolor{SecondaryColor}{HTML}{e67e22}
+\definecolor{ThirdColor}{HTML}{40c3a3}
+\definecolor{BackgroundColor}{HTML}{ffffff}
+\colorlet{name}{SlateGrey}
+\colorlet{tagline}{SlateGrey}
+\colorlet{heading}{SlateGrey}
+\colorlet{headingrule}{LightGrey}
+\colorlet{subheading}{SecondaryColor}
+\colorlet{accent}{SecondaryColor}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+\pagecolor{BackgroundColor}   
+% ----- DARK MODE -----
+%\definecolor{BackgroundColor}{HTML}{242424}
+%\definecolor{SlateGrey}{HTML}{6F6F6F}
+%\definecolor{LightGrey}{HTML}{ABABAB}
+%\definecolor{PrimaryColor}{HTML}{3F7FFF}
+%\colorlet{name}{PrimaryColor}
+%\colorlet{tagline}{PrimaryColor}
+%\colorlet{heading}{PrimaryColor}
+%\colorlet{headingrule}{PrimaryColor}
+%\colorlet{subheading}{PrimaryColor}
+%\colorlet{accent}{PrimaryColor}
+%\colorlet{emphasis}{LightGrey}
+%\colorlet{body}{LightGrey}
+%\pagecolor{BackgroundColor}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\small\bfseries}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% sample.bib contains your publications
+%% \addbibresource{sample.bib}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    }
+\usepackage{url}
+\urlstyle{same}
+    
+\begin{document}
+    \name{Carlos Victor Dantas Araújo}%% You can add multiple photos on the left or right
+
+    \personalinfo{
+        \email{carlosvdaraujo@gmail.com}\smallskip
+        \phone{(88) 99406-8577} \smallskip
+        \printinfo{\faLinkedin}{Carlos Araújo}[https://linkedin.com/in/carlos-araújo-1878b0121]
+   
+        %\homepage{nicolasomar.me}
+        %\medium{nicolasomar}
+        %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
+        % \orcid{0000-0000-0000-0000}
+        %% You can add your own arbtrary detail with
+        %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+        % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+        %% Or you can declare your own field with
+        %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+        % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+        % \gitlab{your_id}
+    }
+    
+    \makecvheader
+    %% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+    % \AtBeginEnvironment{itemize}{\small}
+    
+    %% Set the left/right column width ratio to 6:4.
+    \columnratio{0.29}
+
+    % Start a 2-column paracol. Both the left and right columns will automatically
+    % break across pages if things get too long.
+    \begin{paracol}{2}
+        % ----- STRENGTHS -----
+        \cvsection{Soft Skills}
+            \cvtag{Comunicação}
+            \cvtag{Proatividade}
+            \cvtag{Colaboração}
+            \cvtag{Flexibilidade}
+            \cvtag{Orientação por Resultados}
+            \medskip
+        % ----- STRENGTHS -----
+        
+        % ----- LEARNING -----
+        \cvsection{Hard Skills}
+            \cvtag{C++}
+            \cvtag{Java}
+            \cvtag{Python}
+            \cvtag{R}
+            \cvtag{Go}
+            \cvtag{LaTeX}
+            \cvtag{Git}
+            \linebreak
+            \cvtag{(meta)Heurísticas}
+            \linebreak
+            \cvtag{Modelos Matemáticos}
+            \linebreak
+            \cvtag{Pesquisa Operacional}
+            \linebreak
+            \cvtag{Análise Estatística}
+            
+        % ----- LEARNING -----
+        \cvsection{Bibliotecas}
+            \cvtag{ILOG CPLEX}
+            \cvtag{Gurobi}
+            \cvtag{AMPL}
+            \cvtag{Boost Library}
+            \cvtag{Lemon Graph}
+            \cvtag{Pandas}
+            \cvtag{Numpy}
+            \cvtag{Matplotlib}
+            \cvtag{Flask}
+            \cvtag{scmamp}
+            
+       
+        % ----- LEARNING -----
+        
+        % ----- LANGUAGES -----
+        \cvsection{Línguas}
+            \cvlang{Português}{Nativo}\\
+            \cvlang{Inglês}{Intermediário}
+            %% Yeah I didn't spend too much time making all the
+            %% spacing consistent... sorry. Use \smallskip, \medskip,
+            %% \bigskip, \vpsace etc to make ajustments.
+            \smallskip
+        % ----- LANGUAGES -----
+        
+        % ----- MOST PROUD -----
+        % \cvsection{Most Proud of}
+        
+        % \cvachievement{\faTrophy}{Fantastic Achievement}{and some details about it}\\
+        % \divider
+        % \cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}\\
+        % \divider
+        % \cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
+        % ----- MOST PROUD -----
+        
+        % \cvsection{A Day of My Life}
+        
+        % Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+        % \wheelchart{outer radius}{inner radius}{
+        % comma-separated list of value/text width/color/detail}
+        % \wheelchart{1.5cm}{0.5cm}{%
+        %   6/8em/accent!30/{Sleep,\\beautiful sleep},
+        %   3/8em/accent!40/Hopeful novelist by night,
+        %   8/8em/accent!60/Daytime job,
+        %   2/10em/accent/Sports and relaxation,
+        %   5/6em/accent!20/Spending time with family
+        % }
+        
+        % use ONLY \newpage if you want to force a page break for
+        % ONLY the current column
+        \newpage
+        
+        %% Switch to the right column. This will now automatically move to the second
+        %% page if the content is too long.
+        \switchcolumn
+        
+        % ----- EXPERIENCE -----
+        \cvsection{Experiência de Mercado}
+        \cvevent{Analista de Otimização Sênior}{\textbf{| KaBuM!}}{Jan. 2022 - Atual}{Limeira - SP}
+            {Pesquisador e Desenvolvedor focado em problemas de Centro de Distribuição e roteamento}. \\
+            \medskip
+            \textbf{Principais responsabilidades:}
+            \medskip
+            \begin{itemize}
+                \item Envolvido ativamente na idealização, gerência e desenvolvimento dos projetos de otimização.
+                \item Desenvolvimento de soluções exatas e heurísticas para problemas agrupamento, empacotamento e roteamento. 
+            \end{itemize}
+        \divider
+        \medskip
+        \cvevent{Pesquisador IA}{\textbf{| I.Systems - Automação Avançada de Processos}}{Abr. 2021 - Dez. 2021}{Campinas - SP}
+            {Pesquisador em Otimização Combinatória focado em \textit{Supply Chain}, mais especificamente para planejamento de Produção e escalonamento de tarefas.}.\\
+            \medskip
+            \textbf{Principais responsabilidades:}
+            \medskip
+            \begin{itemize}
+                \item Envolvido ativamente na idealização e implementação das heurísticas principais do algoritmo.
+                \item Participação ativa da preparação do ambiente \textit{cloud} para execução do algoritmo no sistema web.
+            \end{itemize}
+        % ----- Pesquisa -----
+        \cvsection{Experiência com Pesquisa}
+        \cvevent{Pós-Graduação}{\textbf{| Laboratório de Otimização e Combinatória}}{Mar. 2019 - Atual}{Campinas - SP}
+	    {Desenvolvimento de modelos, relaxações lagrangianas e heurísticas para problemas combinatórios NP-difíceis, incluindo (mas não limitado a):} \\
+	      \begin{itemize}
+		        \item Roteamento em Arcos e Árvores de \textit{Multicast}.
+		  \end{itemize}
+		\divider
+		\cvevent{Graduação}{\textbf{| Núcleo de Estudos em Aprendizado de Máquina e Otimização}}{Fev. 2017 - Dez. 2021}{Russas - CE}
+		{} \\
+        \begin{itemize}
+        	\item Modelagem e desenvolvimento de relaxações e heurísticas para o Problema de Máxima Diversidade de Grupos.
+        	\item Desenvolvimento de heurísticas e cortes de otimalidade para o problema de corte máximo em grafos.
+        	\item Estudo de ciência dos dados e algoritmos de Aprendizado de Máquina, gerando resultados aplicados em competições na plataforma Kaggle.
+        \end{itemize}
+% 	 Experiência com Programação Linear Inteira, métodos heurísticos e desenvolvimento/análise de algoritmos. \\
+% 	 Experiência com resolvedores comerciais ILOG CPLEX, Gurobi e AMPL. \\
+% 	 Experiência com criação de instâncias com auxílio de simuladores de tráfego e rede. \\
+% 	 Análise estatística de resultados utilizando Linguagem Python e R. \\
+
+        % ----- EXPERIENCE -----
+        \cvsection{Monitoria e Docência}
+        \medskip
+        \cvevent{Professor Assistente}{\textbf{| Universidade Estadual de Campinas}}{Jan. 2020 - Dez. 2020}{Campinas - SP}
+        {Professor Assistente na disciplina de Desafios de Programação - MO521 e Introdução a Algoritmos e Programação - MO102. \\}
+        \divider
+        % \medskip
+        % % \cvevent{Professor Assistente}{\textbf{| Universidade Estadual de Campinas}}{Ago. 2020 - Dez. 2020}{Campinas - SP}
+        % % {Professor Assistente na disciplina de Introdução a Algoritmos e Programação - MO102. \\}
+        % % \divider
+        % % \medskip
+        % \cvevent{Monitor}{\textbf{| Universidade Federal do Ceará}}{Jan. 2017 - Dez. 2017}{Russas - CE}
+        % {Monitor da Disciplina de Fundamentos de Programação. \\}
+        % \divider
+    \end{paracol}
+    
+    \begin{paracol}{1}
+    % ----- EDUCATION -----
+        \cvsection{Educação}
+            \medskip
+            \cvevent{\textbf{Doutor em Ciência da Computação}}{| Otimização Combinatória}{Mar. 2021 - Mar. 2025}{Universidade Estadual de Campinas}
+            \medskip
+		      \begin{itemize}
+			      \item{Orientadores: Prof. Dr. Fábio L. Usberti e Dr. Rafael K. Arakaki.}
+			      \item{Cursos: \textcolor{SecondaryColor}{Programação Paralela}, \textcolor{SecondaryColor}{Complexidade de Algoritmos} e \textcolor{SecondaryColor}{Algoritmos de Aproximação}.}
+		      \end{itemize}
+            \divider
+            \cvevent{\textbf{Mestre em Ciência da Computação}}{| Otimização Combinatória}{Mar. 2019 - Mar. 2021}{Universidade Estadual de Campinas}
+            \medskip
+		      \begin{itemize}
+			      \item{Orientadores: Prof. Dr. Fábio L. Usberti e Prof. Dr. Cid C. de Souza.}
+			      \item{Dissertação: Formulações e Heurísticas para o Problema de Máximo Atendimento em Roteamento Multicast com Restrições de QoS.}
+			      \item{Cursos: \textcolor{SecondaryColor}{Algoritmos em Grafos}, \textcolor{SecondaryColor}{Programação Linear e Inteira} e \textcolor{SecondaryColor}{ Tópicos em Otimização Combinatória}.}
+			      \item{Uma cópia da minha dissertação está disponível nesse
+			      \href{https://hdl.handle.net/20.500.12733/1641777}{\textcolor{ThirdColor}{link}}}
+		      \end{itemize}
+            \divider
+            \cvevent{\textbf{Bacharel em Ciência da Computação}}{}{Mar. 2015 - Dez. 2018}{Universidade Federal do Ceará}
+            % \medskip
+		      \begin{itemize}
+		          \item{Orientador: Prof. Dr. Pablo L. B. Soares.}
+			      \item{TCC: Utilização de desigualdades válidas baseadas em condições de otimalidade na construção de algoritmos heurísticos para o problema do corte máximo.}
+  			      \item{Uma cópia do meu Trabalho de Conclusão de Curso está disponível nesse
+			      \href{http://www.repositorio.ufc.br/handle/riufc/39085}{\textcolor{ThirdColor}{link}}}
+		      \end{itemize}
+		      
+        % ----- EDUCATION -----
+        \cvsection{Publicações}
+        \medskip
+    	    \textbf{Araújo, C. V. D.}; Usberti, F. L.; de Souza, C. C.
+    	    \textcolor{SecondaryColor}{Lagrangian Relaxation to the Problem of Maximum Service in Multicast Routing with QoS constraints}. International Transactions in Operational Research (ITOR), 2022. Vol. 0 p. 0-0 (\emph{Em revisão}) \\
+    	    \divider \\
+    		\textbf{Araújo, C. V. D.}; Soares, P. L. B.
+    	    \textcolor{SecondaryColor}{Genetic Algorithms with Optimality Cuts to the Max-Cut Problem}. Special Issue Bio-inspired Computing Emerging Theories and Industry Applications (VSI-bioc), 2020. Vol. 0 p. 0-0 (\emph{Em revisão}) \\
+    	    \divider \\
+    	    \textbf{Araújo, C. V. D.}; Figueiredo, T. F.
+    	    \textcolor{SecondaryColor}{O Problema Da Diversidade Máxima de Grupos: uma abordagem de programação linear inteira}.  L Simpósio Brasileiro de Pesquisa Operacional (SBPO), 2018. Vol. 0 p 0-0 \\
+    		\divider \\
+    		\textbf{Araújo, C. V. D.}; Figueiredo, T. F.
+    		\textcolor{SecondaryColor}{Relaxação Lagrangiana Aplicada ao Problema da Diversidade Máxima de Grupos}. Encontros universitários - UFC, 2018. Vol. 0 p. 0-0 (\emph{Resumo}) \\
+    		\divider \\
+    		\textbf{Araújo, C. V. D.}; Soares, P. L. B. 
+    		\textcolor{SecondaryColor}{Algoritmo Genético para o Problema Do Corte Máximo}. Encontros universitários - UFC, 2018. Vol. 0 p. 0-0 (\emph{Resumo}) \\
+            \divider \\
+            \textbf{Araújo, C. V. D.}; Soares, P. L. B.
+            \textcolor{SecondaryColor}{Estudo de Abordagens para o problema de Corte Máximo}. Encontros universitários  - UFC, 2017.Vol. 0 p. 0-0 (\emph{Resumo}) \\
+	    \medskip
+        % ----- PROJECTS -----
+        \cvsection{Honras e Prêmios}
+        \begin{itemize}
+            \item Melhor trabalho da categoria Iniciação Científica nos \textcolor{SecondaryColor}{Encontros Universitários, 2018}.
+            \item Segundo lugar na etapa regional do \textcolor{SecondaryColor}{\textit{International Collegiate Programming Contest} (ICPC), 2018}.
+            \item Vencedor da etapa nacional da \textcolor{SecondaryColor}{Olimpíada de Língua Portuguesa - Escrevendo o Futuro no ano de 2008}.     
+        \end{itemize}
+    \end{paracol}
+\end{document}
