@@ -24,11 +24,11 @@ jobs:
       - name: checkout gh_actions_builds branch
         uses: actions/checkout@v1
         with:
-          ref: gh_actions_builds
+          ref: main
       - name: commit pdf
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "carlosvdaraujo@gmail.com"
+          git config --local user.name "cvaraujo"
           mv $HOME/main.pdf $(pwd) # bring it back 
           git add main.pdf
           git commit -m "Update PDF"
@@ -39,21 +39,18 @@ jobs:
           force: false
           github_token: ${{ secrets.TOKEN }}
   
-  copy-file:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Pushes test file
-      uses: dmnemec/copy_file_to_another_repo_action@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
-      with:
-        source_file: 'main.pdf'
-        destination_repo: 'cvaraujo/Webpage-Carlos-Unicamp'
-        destination_folder: '.'
-        user_email: 'carlosvdaraujo@gmail.com'
-        user_name: 'cvaraujo'
-        commit_message: 'Update CV'
-          
+      - name: Pushes test file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
+        with:
+          source_file: 'main.pdf'
+          destination_repo: 'cvaraujo/Webpage-Carlos-Unicamp'
+          destination_folder: '.'
+          user_email: 'carlosvdaraujo@gmail.com'
+          user_name: 'cvaraujo'
+          commit_message: 'Update CV'
+
