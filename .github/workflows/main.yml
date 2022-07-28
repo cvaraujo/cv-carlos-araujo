@@ -20,8 +20,6 @@ jobs:
           ls -la
           echo $HOME
           echo $(pwd)
-      - name: Checkout to send
-        uses: actions/checkout@v2
       - name: Pushes  file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
