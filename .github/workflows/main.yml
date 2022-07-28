@@ -22,9 +22,14 @@ jobs:
           echo $(pwd)
       - name: Checkout to send
         uses: actions/checkout@v2
-      - name: ls
-        run: |
-          ls -la
-          echo $HOME
-          echo $(pwd)
+      - name: Pushes  file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
+        with:
+          source_file: '/home/runner/work/cv-carlos-araujo/cv-carlos-araujo/main.pdf'
+          destination_repo: 'ThomasDillanBM/Webpage-Carlos-Unicamp'
+          user_email: 'carlosvdaraujo@gmail.com'
+          user_name: 'cvaraujo'
+          commit_message: 'Update CV'
 
