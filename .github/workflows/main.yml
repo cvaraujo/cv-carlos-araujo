@@ -4,7 +4,17 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
+    steps:      
+      - name: download paper repo
+        uses: actions/checkout@v1
+      - name: build pdf 
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: ./ 
+      - name: stash pdf
+        run: |
+          cp main.pdf $HOME # cache the file
       - name: ls
         run: |
           ls -la
