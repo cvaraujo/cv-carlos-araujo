@@ -14,7 +14,7 @@ jobs:
           working_directory: ./ 
       - name: stash pdf
         run: |
-          mv main.pdf $HOME # cache the file
+          cp main.pdf $HOME # cache the file
       - name: Checkout to send
         uses: actions/checkout@v2
       - name: Pushes  file
@@ -22,7 +22,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
         with:
-          source_file: 'main.pdf'
+          source_file: './main.pdf'
           destination_repo: 'ThomasDillanBM/Webpage-Carlos-Unicamp'
           user_email: 'carlosvdaraujo@gmail.com'
           user_name: 'cvaraujo'
