@@ -15,6 +15,7 @@ jobs:
       - name: stash pdf
         run: |
           cp main.pdf $HOME # cache the file
+          mv $HOME/main.pdf $(pwd)
       - name: Checkout to send
         uses: actions/checkout@v2
       - name: Pushes  file
