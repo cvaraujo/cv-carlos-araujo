@@ -22,7 +22,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
         with:
-          source_file: './main.pdf'
+          source_file: '$HOME/main.pdf'
           destination_repo: 'ThomasDillanBM/Webpage-Carlos-Unicamp'
           user_email: 'carlosvdaraujo@gmail.com'
           user_name: 'cvaraujo'
