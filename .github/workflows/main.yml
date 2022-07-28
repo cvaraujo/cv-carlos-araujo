@@ -18,6 +18,9 @@ jobs:
           mv $HOME/main.pdf $(pwd)
       - name: Checkout to send
         uses: actions/checkout@v2
+      - name: ls
+        run: |
+          ls -la
       - name: Pushes  file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
