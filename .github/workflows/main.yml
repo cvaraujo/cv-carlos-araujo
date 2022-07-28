@@ -5,30 +5,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: download paper repo
-        uses: actions/checkout@v1
-      - name: build pdf 
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: main.tex
-          working_directory: ./ 
-      - name: stash pdf
+      - name: ls
         run: |
-          cp main.pdf $HOME # cache the file
-          mv $HOME/main.pdf $(pwd)
+          ls -la
+          echo $HOME
+          echo $(pwd)
       - name: Checkout to send
         uses: actions/checkout@v2
       - name: ls
         run: |
           ls -la
-      - name: Pushes  file
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
-        with:
-          source_file: 'main.pdf'
-          destination_repo: 'ThomasDillanBM/Webpage-Carlos-Unicamp'
-          user_email: 'carlosvdaraujo@gmail.com'
-          user_name: 'cvaraujo'
-          commit_message: 'Update CV'
+          echo $HOME
+          echo $(pwd)
 
